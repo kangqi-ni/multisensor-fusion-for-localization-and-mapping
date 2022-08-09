@@ -1,0 +1,33 @@
+# registration
+registration_method: NDT_CPU   # options：NDT, NDT_CPU
+
+
+# current frame filter
+# no_filter: denser point cloud improves registration accuracy but decreases efficiency
+# no_filter is provided to be compared with other filters
+frame_filter: voxel_filter # options：voxel_filter, no_filter
+
+# local map
+key_frame_distance: 2.0
+local_frame_num: 20
+local_map_filter: voxel_filter # options: voxel_filter, no_filter
+
+
+# configuration parameters
+## registration parameters
+NDT:
+    res : 1.0
+    step_size : 0.1
+    trans_eps : 0.01
+    max_iter : 30
+NDT_CPU:
+    res : 1.0
+    step_size : 0.1
+    trans_eps : 0.01
+    max_iter : 30
+## filter parameters
+voxel_filter:
+    local_map:
+        leaf_size: [0.6, 0.6, 0.6]
+    frame:
+        leaf_size: [1.3, 1.3, 1.3]

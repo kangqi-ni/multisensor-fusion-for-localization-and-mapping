@@ -1,0 +1,21 @@
+data_path: ./   
+
+# global map
+global_map_filter: voxel_filter # options：voxel_filter
+
+# local map
+local_frame_num: 20
+local_map_filter: voxel_filter # options：voxel_filter
+
+# current frame
+frame_filter: voxel_filter # options：voxel_filter
+
+# configuration parameters
+## voxel filter parameters
+voxel_filter:
+    global_map:
+            leaf_size: [0.5, 0.5, 0.5]
+    local_map:
+        leaf_size: [0.5, 0.5, 0.5]
+    frame:
+        leaf_size: [0.5, 0.5, 0.5]
