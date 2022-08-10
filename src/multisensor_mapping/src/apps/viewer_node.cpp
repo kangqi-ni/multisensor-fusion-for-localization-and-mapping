@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 
     std::string cloud_topic;
     nh.param<std::string>("cloud_topic", cloud_topic, "/synced_cloud");
-    std::shared_ptr<ViewerFlow> _viewer_flow_ptr = std::make_shared<ViewerFlow>(nh, cloud_topic);
+    std::shared_ptr<ViewerFlow> viewer_flow_ptr = std::make_shared<ViewerFlow>(nh, cloud_topic);
 
     ros::ServiceServer service = nh.advertiseService("save_map", save_map_callback);
 
@@ -33,10 +33,10 @@ int main(int argc, char *argv[]) {
     while (ros::ok()) {
         ros::spinOnce();
 
-        _viewer_flow_ptr->Run();
+        viewer_flow_ptr->Run();
         if (need_save_map) {
             need_save_map = false;
-            _viewer_flow_ptr->SaveMap();
+            viewer_flow_ptr->SaveMap();
         }
 
         rate.sleep();
