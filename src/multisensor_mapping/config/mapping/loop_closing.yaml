@@ -1,6 +1,6 @@
 data_path: ./
 
-registration_method: NDT          # options：NDT 
+registration_method: NDT_CPU      # options：NDT, NDT_CPU 
 loop_closure_method: scan_context # options: scan_context
 
 
