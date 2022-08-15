@@ -27,4 +27,4 @@ The frontend uses NDT CPU from Autoware to provide LiDAR poses. The backend fuse
 <img src="https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/docs/fusion_mapping_ape_raw.png">
 <img src="https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/docs/fusion_mapping_ape_map.png">
 
-The experiments show the obvious improvement of multisensor fusion.
+The experiments show obvious improvement of multisensor fusion from LiDAR only mapping.
