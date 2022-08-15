@@ -15,18 +15,16 @@ This package implements mutisensor mapping using LiDAR, IMU, GNSS, and odometer 
 The frontend uses NDT CPU from Autoware to provide LiDAR poses. The backend fuses LiDAR relative poses, IMU and odometer preintegrations, GNSS prior positions, and loop closure relative poses as optimization constraints. Since mapping does not need to run in real-time, a sliding window is not implemented here. <br>
 
 ### Map
-![map](https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/src/docs/map.png)
+![map](https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/docs/map.png)
 
 ### LiDAR Only Mapping
-<img src="https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/src/docs/laser_mapping_ape.png">
-
-<img src="https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/src/docs/laser_mapping_ape_raw.png">
-
-<img src="https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/src/docs/laser_mapping_ape_map.png">
+<img src="https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/docs/laser_mapping_ape.png">
+<img src="https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/docs/laser_mapping_ape_raw.png">
+<img src="https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/docs/laser_mapping_ape_map.png">
 
 ### Multisensor Fusion Mapping
-<img src="https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/src/docs/fusion_mapping_ape.png">
+<img src="https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/docs/fusion_mapping_ape.png">
+<img src="https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/docs/fusion_mapping_ape_raw.png">
+<img src="https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/docs/fusion_mapping_ape_map.png">
 
-<img src="https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/src/docs/fusion_mapping_ape_raw.png">
-
-<img src="https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/src/docs/fusion_mapping_ape_map.png">
+The experiments show the obvious improvement of multisensor fusion.
