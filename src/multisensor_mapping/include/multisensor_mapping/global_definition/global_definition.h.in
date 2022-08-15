@@ -1,0 +1,10 @@
+#ifndef MULTISENSOR_MAPPING_global_definition_H_IN_
+#define MULTISENSOR_MAPPING_global_definition_H_IN_
+
+#include <string>
+
+namespace multisensor_mapping {
+const std::string WORK_SPACE_PATH = "@WORK_SPACE_PATH@";
+}
+
+#endif

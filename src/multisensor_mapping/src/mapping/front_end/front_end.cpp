@@ -25,7 +25,7 @@ bool FrontEnd::InitWithConfig() {
     std::string config_file_path = WORK_SPACE_PATH + "/config/mapping/front_end.yaml";
     YAML::Node config_node = YAML::LoadFile(config_file_path);
 
-    std::cout << "-----------------Init Lidar Frontend-------------------" << std::endl;
+    std::cout << "-----------------Lidar Frontend Init-------------------" << std::endl;
     // init parameters
     InitParam(config_node);
     // init registration parameters
@@ -49,11 +49,9 @@ bool FrontEnd::InitRegistration(std::shared_ptr<RegistrationInterface>& registra
     std::string registration_method = config_node["registration_method"].as<std::string>();
     std::cout << "\tPoint Cloud Registration Method: " << registration_method << std::endl;
 
-    // use pcl ndt
     if (registration_method == "NDT") {
         registration_ptr = std::make_shared<NDTRegistration>(config_node[registration_method]);
     } 
-    // use autoware ndt_cpu 
     else if (registration_method == "NDT_CPU") {
         registration_ptr = std::make_shared<NDTCPURegistration>(config_node[registration_method]);
     }

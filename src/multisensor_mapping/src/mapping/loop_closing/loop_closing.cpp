@@ -61,10 +61,10 @@ bool LoopClosing::InitDataPath(const YAML::Node& config_node) {
     key_frames_path_ = data_path + "/slam_data/key_frames";
     scan_context_path_ = data_path + "/slam_data/scan_context";
 
-    if (!FileManager::CreateDirectory(key_frames_path_, "map storage"))
+    if (!FileManager::CreateDirectory(key_frames_path_, "Point Cloud Key Frames"))
         return false;
     
-    if (!FileManager::CreateDirectory(scan_context_path_, "key frame storage"))
+    if (!FileManager::CreateDirectory(scan_context_path_, "Scan Context Index & Data"))
         return false;
 
     return true;
@@ -176,23 +176,24 @@ bool LoopClosing::DetectNearestKeyFrame(
         );
         float key_frame_distance = translation.norm();
     #else
-        // total number of GNSS/IMU key frame poses:
+        // iterate through all keyframes to find closest match
+        // only used for testing purposes
+
+        // total number of GNSS/IMU key frame poses
         const size_t N = all_key_gnss_.size();
 
-        // ensure valid loop closure match:
-        if (
-            N < static_cast<size_t>(diff_num_ + 1)
-        )
+        // ensure valid loop closure match
+        if (N < static_cast<size_t>(diff_num_ + 1))
             return false;
 
         const KeyFrame &current_key_frame = all_key_gnss_.back();
 
         int proposed_key_frame_id = ScanContextManager::NONE;
-        // this orientation compensation is not available for GNSS/IMU proposal:
+        // this orientation compensation is not available for GNSS/IMU proposal
         const float proposed_yaw_change = 0.0f;
         float key_frame_distance = std::numeric_limits<float>::max();
         for (size_t i = 0; i < N - 1; ++i) {
-            // ensure key frame seq. distance:
+            // ensure key frame seq. distance
             if (N < static_cast<size_t>(i + diff_num_))
                 break;
             
@@ -203,7 +204,7 @@ bool LoopClosing::DetectNearestKeyFrame(
             );
             float distance = translation.norm();
 
-            // get closest proposal:
+            // get closest proposal
             if (distance < key_frame_distance) {
                 key_frame_distance = distance;
                 proposed_key_frame_id = i;

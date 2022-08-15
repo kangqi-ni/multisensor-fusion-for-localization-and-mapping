@@ -9,7 +9,7 @@ using namespace multisensor_mapping;
 
 bool save_scan_context = false;
 
-bool SaveScanContextCb(saveScanContext::Request &request, saveScanContext::Response &response) {
+bool SaveScanContextCallback(saveScanContext::Request &request, saveScanContext::Response &response) {
     save_scan_context = true;
     response.succeed = true;
     return response.succeed;
@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
     std::shared_ptr<LoopClosingFlow> loop_closing_flow_ptr = std::make_shared<LoopClosingFlow>(nh);
 
     // register service for saving scan context
-    ros::ServiceServer service = nh.advertiseService("save_scan_context", SaveScanContextCb);
+    ros::ServiceServer service = nh.advertiseService("save_scan_context", SaveScanContextCallback);
 
     ros::Rate rate(100);
     while (ros::ok()) {

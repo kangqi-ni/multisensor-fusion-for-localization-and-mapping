@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     // a. front end odometry
     std::shared_ptr<FrontEndFlow> front_end_flow_ptr = std::make_shared<FrontEndFlow>(nh, cloud_topic, odom_topic);
 
-    // rate is set to 100 Hz but actually runs below 20 Hz
+    // rate is set to 100 Hz but actually runs much lower than 100 Hz
     // set a higher rate to run front end at fastest rate possible
     ros::Rate rate(100); 
     while (ros::ok()) {

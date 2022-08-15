@@ -28,9 +28,9 @@ bool DistortionAdjust::AdjustCloud(CloudData::CLOUD_PTR& input_cloud_ptr, CloudD
     transform_matrix.block<3,3>(0,0) = rotate_matrix.inverse();
     pcl::transformPointCloud(*origin_cloud_ptr, *origin_cloud_ptr, transform_matrix);
 
-    // ERROR: rotate_matrix.inverse() instead of rotate_matrix 
-    velocity_ = rotate_matrix * velocity_;
-    angular_rate_ = rotate_matrix * angular_rate_;
+    // NOTE: rotate_matrix.inverse() instead of rotate_matrix 
+    velocity_ = rotate_matrix.inverse() * velocity_;
+    angular_rate_ = rotate_matrix.inverse() * angular_rate_;
 
     for (size_t point_index = 1; point_index < origin_cloud_ptr->points.size(); ++point_index) {
         // compute current orientation

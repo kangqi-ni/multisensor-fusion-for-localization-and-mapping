@@ -20,7 +20,7 @@ bool Viewer::InitWithConfig() {
     std::cout << "-----------------Viewer Init-------------------" << std::endl;
     // initialize parameters
     InitParam(config_node);
-    // create data storage paths
+    // initialize data storage paths
     InitDataPath(config_node);
     // initialize filter parameters
     InitFilter("frame", frame_filter_ptr_, config_node);
@@ -44,10 +44,10 @@ bool Viewer::InitDataPath(const YAML::Node& config_node) {
     key_frames_path_ = data_path + "/slam_data/key_frames";
     map_path_ = data_path + "/slam_data/map";
 
-    if (!FileManager::CreateDirectory(map_path_, "map storage"))
+    if (!FileManager::CreateDirectory(map_path_, "Point Cloud Global Map"))
         return false;
     
-    if (!FileManager::CreateDirectory(key_frames_path_, "key frame storage"))
+    if (!FileManager::CreateDirectory(key_frames_path_, "Point Cloud Key Frames"))
         return false;
 
     return true;
@@ -123,7 +123,7 @@ bool Viewer::OptimizeKeyFrames() {
         else {
             // store T_optimized_original
 
-            // ERROR: T_optimized_world * T_world_original instead of T_world_optimized * T_original_world
+            // NOTE: T_optimized_world * T_world_original instead of T_world_optimized * T_original_world
             
             // pose_to_optimize_ = optimized_key_frames_.at(optimized_index).pose * all_key_frames_.at(all_index).pose.inverse();
             pose_to_optimize_ = optimized_key_frames_.at(optimized_index).pose.inverse() * all_key_frames_.at(all_index).pose;
