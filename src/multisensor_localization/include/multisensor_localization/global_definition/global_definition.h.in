@@ -1,0 +1,9 @@
+#ifndef MULTISENSOR_LOCALIZATION_global_definition_H_IN_
+#define MULTISENSOR_LOCALIZATION_global_definition_H_IN_
+
+#include <string>
+
+namespace multisensor_localization {
+const std::string WORK_SPACE_PATH = "@WORK_SPACE_PATH@";
+}
+#endif
