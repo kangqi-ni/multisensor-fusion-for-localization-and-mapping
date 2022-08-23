@@ -29,6 +29,9 @@ The frontend module uses NDT CPU from Autoware to provide LiDAR poses. The loop 
 
 The experiments show obvious improvement of multisensor fusion on mapping accuracy.
 
+### TODO
+1. Integrate gtsam-based factor graph optimization as mapping backend.
+
 ## Multisensor Localization
 This package implements multisensor localization using LiDAR, IMU, GNSS, and odometry measurements to localize within a prebuilt map and evaluates performance on the KITTI dataset. <br>
 The frontend uses NDT CPU from Autoware to provide LiDAR poses and adds Scan Context to detect loop closures. The backend fuses LiDAR relative poses after loop closures, IMU preintegrations, and GNSS prior poses as optimization constraints. A sliding window is implemented to margalize old measurements as prior and speed up optimization. <br>
@@ -47,3 +50,7 @@ The frontend uses NDT CPU from Autoware to provide LiDAR poses and adds Scan Con
 <img src="https://github.com/kangqi-ni/multisensor_fusion_for_localization_and_mapping/blob/master/docs/fusion_localization_ape_map.png">
 
 The experiments show obvious improvement of multisensor fusion on localization accuracy.
+
+### TODO
+1. Integrate Kalman Filter, Extended Kalman Filter, or Error-State Kalman Filte as localization backend.
+2. Integrate gtsam-based factor graph optimization as localization backend.
