@@ -8,7 +8,6 @@
 #include <ros/ros.h>
 
 #include "multisensor_localization/sensor_data/pos_vel_data.hpp"
-
 #include "multisensor_localization/PosVel.h"
 
 namespace multisensor_localization {

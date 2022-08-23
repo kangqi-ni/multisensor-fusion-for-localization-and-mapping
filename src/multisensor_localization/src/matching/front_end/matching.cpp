@@ -27,7 +27,7 @@ bool Matching::InitWithConfig() {
     std::string config_file_path = WORK_SPACE_PATH + "/config/matching/matching.yaml";
     YAML::Node config_node = YAML::LoadFile(config_file_path);
 
-    LOG(INFO) << std::endl << "----------------- LIO Localization Frontend Init-------------------" << std::endl;
+    LOG(INFO) << std::endl << "----------------- LIO Localization Frontend Init -------------------" << std::endl;
 
     // init point cloud map & measurement processors
     InitPointCloudProcessors(config_node);
