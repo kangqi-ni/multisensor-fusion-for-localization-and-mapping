@@ -25,7 +25,6 @@ add_message_files(
     FILES
     # synced GNSS-odo measurement
     PosVel.msg
-
 )
 
 add_service_files(

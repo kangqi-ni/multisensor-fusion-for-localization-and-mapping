@@ -176,9 +176,9 @@ bool LIOBackEnd::Update(
     const IMUData &imu_data) {
     ResetParam();
 
-    if (HasNewKeyFrame(cloud_data, laser_odom, gnss_pose, imu_data)) {
+    if (CheckNewKeyFrame(cloud_data, laser_odom, gnss_pose, imu_data)) {
         AddNodeAndEdge(gnss_pose);
-        HasOptimized();
+        CheckOptimized();
     }
 
     return true;
@@ -189,7 +189,7 @@ void LIOBackEnd::ResetParam() {
     has_new_optimized_ = false;
 }
 
-bool LIOBackEnd::HasNewKeyFrame(
+bool LIOBackEnd::CheckNewKeyFrame(
     const CloudData& cloud_data, 
     const PoseData& laser_odom, 
     const PoseData& gnss_odom,
@@ -341,7 +341,7 @@ bool LIOBackEnd::AddNodeAndEdge(const PoseData& gnss_data) {
     return true;
 }
 
-bool LIOBackEnd::HasOptimized() {
+bool LIOBackEnd::CheckOptimized() {
     bool need_optimize = false; 
     
     // enough key frames and loop closures

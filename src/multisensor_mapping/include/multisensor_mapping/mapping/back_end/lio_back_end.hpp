@@ -57,7 +57,7 @@ class LIOBackEnd {
     void ResetParam();
     bool SavePose(std::ofstream& ofs, const Eigen::Matrix4f& pose);
     
-    bool HasNewKeyFrame(
+    bool CheckNewKeyFrame(
       const CloudData& cloud_data, 
       const PoseData& laser_odom, 
       const PoseData& gnss_pose,
@@ -66,7 +66,7 @@ class LIOBackEnd {
     
     bool AddNodeAndEdge(const PoseData& gnss_data);
 
-    bool HasOptimized();
+    bool CheckOptimized();
     void ShowIMUPreIntegrationResidual(
       const PoseData &last_gnss_pose, const PoseData& curr_gnss_pose,
       const IMUPreIntegrator::IMUPreIntegration &imu_pre_integration
