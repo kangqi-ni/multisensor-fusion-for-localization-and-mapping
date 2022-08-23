@@ -56,3 +56,11 @@ The experiments show obvious improvement of multisensor fusion on localization a
 ### TODO
 1. Integrate Kalman Filter, Extended Kalman Filter, or Error-State Kalman Filte as localization backend.
 2. Integrate gtsam-based factor graph optimization as localization backend.
+
+
+
+## References 
+[1] Autoware Foundation. (2020). NDT_CPU. https://github.com/autowarefoundation/autoware_ai_perception/tree/master/ndt_cpu. <br>
+[2] Qian Ren. (2020). Localization in Auto Driving. https://github.com/Little-Potato-1990/localization_in_auto_driving. <br>
+[3] Tong Qin. (2019). VINS-Mono. https://github.com/HKUST-Aerial-Robotics/VINS-Mono. <br>
+[4] Yao Ge. (2021). Sensor Fusion for Localization CourseWare. https://github.com/AlexGeControl/Sensor-Fusion-for-Localization-Courseware. <br>
