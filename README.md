@@ -32,6 +32,8 @@ The experiments show obvious improvement of multisensor fusion on mapping accura
 ### TODO
 1. Integrate gtsam-based factor graph optimization as mapping backend.
 
+
+
 ## Multisensor Localization
 This package implements multisensor localization using LiDAR, IMU, GNSS, and odometry measurements to localize within a prebuilt map and evaluates performance on the KITTI dataset. <br>
 The frontend uses NDT CPU from Autoware to provide LiDAR poses and adds Scan Context to detect loop closures. The backend fuses LiDAR relative poses after loop closures, IMU preintegrations, and GNSS prior poses as optimization constraints. A sliding window is implemented to margalize old measurements as prior and speed up optimization. <br>
