@@ -10,6 +10,10 @@ Install the following dependencies to run this project: <br>
 7. sophus
 8. YAML
 
+## Dataset
+This is a modified kitti rosbag: https://drive.google.com/file/d/1zoc7hm5nZvv0koZVPxt19J5d-TOxVfK1/view?usp=sharing <br>
+The original kitti dataset has many missing parts in the raw data. The missing part has been linearly interpolated in this rosbag for the purpose of multisensor fusion. However, linear interpolation does not reflect how the actual missing data are like. <br>
+
 ## Multisensor Mapping
 This package implements multisensor mapping using LiDAR, IMU, GNSS, and odometer measurements to build a map and evaluates performance on the KITTI dataset.<br>
 The frontend module uses NDT CPU from Autoware to provide LiDAR poses. The loop closure module uses Scan Context to detect loop closures. The backend fuses LiDAR relative poses, IMU and odometer preintegrations, GNSS prior positions, and loop closure relative poses as optimization constraints. Since mapping does not need to run in real-time, a sliding window is not implemented here. <br>
